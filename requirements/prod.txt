@@ -7,8 +7,7 @@
 #-e git://github.com/django/django@1.4.X#egg=django
 
 # Templates
-jingo
-jingo-minify
+django_compressor
 Markdown
 
 # Security

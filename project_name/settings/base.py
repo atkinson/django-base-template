@@ -34,8 +34,6 @@ SITE_ID = 1
 ROOT_URLCONF = '{{ project_name }}.urls'
 
 INSTALLED_APPS = [
-    # Template apps
-    'jingo_minify',
 
     #admintools
     'admintools_bootstrap',
@@ -57,9 +55,13 @@ INSTALLED_APPS = [
     'django.contrib.syndication',
     'django.contrib.staticfiles',
 
+    # Application base, containing global templates.
+    '{{ project_name }}.base',
+
     # Third-party apps, patches, fixes
     'commonware.response.cookies',
     # 'djcelery',
+    'compressor',
     'django_nose',
     'session_csrf',
     'debug_toolbar',
@@ -69,8 +71,6 @@ INSTALLED_APPS = [
     #'debug_toolbar_user_panel',
     #'memcache_toolbar',
 
-    # Application base, containing global templates.
-    '{{ project_name }}.base',
 
     # Local apps, referenced via {{ project_name }}.appname
 ]
@@ -139,6 +139,7 @@ USE_TZ = True
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
 )
 
 
@@ -168,7 +169,6 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.core.context_processors.static',
     'session_csrf.context_processor',
     'django.contrib.messages.context_processors.messages',
-    #'jingo_minify.helpers.build_ids',
 ]
 
 TEMPLATE_DIRS = (
@@ -180,7 +180,6 @@ TEMPLATE_DIRS = (
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    'jingo.Loader',
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 )
@@ -220,15 +219,6 @@ DEBUG_TOOLBAR_PANELS = (
 
 FILE_UPLOAD_PERMISSIONS = 0664
 
-# Because Jinja2 is the default template loader, add any non-Jinja templated
-# apps here:
-JINGO_EXCLUDE_APPS = [
-    'admin',
-    'debug_toolbar',
-    'debug_toolbar_user_panel',
-    'memcache_toolbar',
-    'admin_tools',
-]
 
 # The WSGI Application to use for runserver
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
