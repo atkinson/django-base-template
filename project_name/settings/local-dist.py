@@ -41,7 +41,7 @@ MANAGERS = ADMINS
 # although not all choices may be available on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'Sydney/Australia'
+TIME_ZONE = 'Australia/Sydney'
 
 # Debugging displays nice error messages, but leaks memory. Set this to False
 # on all server instances and True only for development.
