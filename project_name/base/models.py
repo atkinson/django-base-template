@@ -10,7 +10,7 @@ class Profile(UserenaBaseProfile):
         unique=True,
         verbose_name=_('user'),
         related_name='profile')
-    apps = models.ManyToManyField('saas.App', through='saas.Subscription')
+    apps = models.ManyToManyField('base.App', through='base.Subscription')
 
 
 class Subscription(models.Model):

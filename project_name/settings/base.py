@@ -227,6 +227,7 @@ JINGO_EXCLUDE_APPS = [
     'debug_toolbar',
     'debug_toolbar_user_panel',
     'memcache_toolbar',
+    'admin_tools',
 ]
 
 # The WSGI Application to use for runserver
@@ -235,7 +236,7 @@ WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 # Userena ----------
 ANONYMOUS_USER_ID = -1
-AUTH_PROFILE_MODULE = '{{ project_name }}.base.UserProfile'
+AUTH_PROFILE_MODULE = 'base.Profile'
 LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
 LOGIN_URL = '/accounts/login/'
 LOGOUT_URL = '/accounts/logout/'
