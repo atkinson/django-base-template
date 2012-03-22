@@ -37,6 +37,13 @@ INSTALLED_APPS = [
     # Template apps
     'jingo_minify',
 
+    #admintools
+    'admintools_bootstrap',
+    'admin_tools',
+    'admin_tools.theming',
+    'admin_tools.menu',
+    'admin_tools.dashboard',
+
     # Django contrib apps
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,10 +59,13 @@ INSTALLED_APPS = [
 
     # Third-party apps, patches, fixes
     'commonware.response.cookies',
-    'djcelery',
+    # 'djcelery',
     'django_nose',
     'session_csrf',
     'debug_toolbar',
+    'userena',
+    'bootstrap',
+    'south',
     #'debug_toolbar_user_panel',
     #'memcache_toolbar',
 
@@ -131,6 +141,14 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
+
+AUTHENTICATION_BACKENDS = [
+    'userena.backends.UserenaAuthenticationBackend',
+    'guardian.backends.ObjectPermissionBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+
 MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -199,8 +217,6 @@ DEBUG_TOOLBAR_PANELS = (
     'debug_toolbar.panels.logger.LoggingPanel',
 )
 
-# Specify a model to use for user profiles, if desired.
-#AUTH_PROFILE_MODULE = '{{ project_name }}.accounts.UserProfile'
 
 FILE_UPLOAD_PERMISSIONS = 0664
 
@@ -216,3 +232,14 @@ JINGO_EXCLUDE_APPS = [
 # The WSGI Application to use for runserver
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
+
+# Userena ----------
+ANONYMOUS_USER_ID = -1
+AUTH_PROFILE_MODULE = '{{ project_name }}.base.UserProfile'
+LOGIN_REDIRECT_URL = '/accounts/%(username)s/'
+LOGIN_URL = '/accounts/login/'
+LOGOUT_URL = '/accounts/logout/'
+USERENA_WITHOUT_USERNAMES = True
+USERENA_HIDE_EMAIL = True
+USERENA_DISABLE_PROFILE_LIST = True
+USERENA_DEFAULT_PRIVACY = 'closed'

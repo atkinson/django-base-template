@@ -41,7 +41,7 @@ MANAGERS = ADMINS
 # although not all choices may be available on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Los_Angeles'
+TIME_ZONE = 'Sydney/Australia'
 
 # Debugging displays nice error messages, but leaks memory. Set this to False
 # on all server instances and True only for development.
@@ -89,3 +89,5 @@ INTERNAL_IPS = ('127.0.0.1')
 SERVER_EMAIL = "webmaster@example.com"
 DEFAULT_FROM_EMAIL = "webmaster@example.com"
 SYSTEM_EMAIL_PREFIX = "[{{ project_name }}]"
+
+EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'

@@ -22,15 +22,15 @@ bleach
 #raven
 
 # Celery: Message queue
-celery
-django-celery
+#celery
+#django-celery
 
 # L10n/i18n
 #Babel
 #-e git://github.com/clouserw/tower.git#egg=tower
 
 # Caching
-python-memcached
+# python-memcached
 
 # Admin
 django-debug-toolbar
@@ -39,9 +39,18 @@ django-debug-toolbar
 #-e git://github.com/ross/memcache-debug-panel#egg=memcache_toolbar-dev
 
 # Migrations
-South
+-e hg+https://bitbucket.org/andrewgodwin/south#egg=South-tip
+
+
+# Admintools
+django-admin-tools
+-e hg+ssh://hg@bitbucket.org/atkinsonr/django-admintools-bootstrap#egg=django_admintools_bootstrap-tip
 
 # Various tidbits
 -e git://github.com/jsocol/commonware.git#egg=commonware
 -e git://github.com/mozilla/nuggets.git#egg=nuggets
-
+pytz
+feedparser
+-e git://github.com/themartorana/python-postmark.git#egg=python_postmark-dev
+-e git://github.com/bread-and-pepper/django-userena.git#egg=userena
+-e git://github.com/earle/django-bootstrap.git#egg=bootstrap

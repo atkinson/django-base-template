@@ -10,10 +10,12 @@ def bad(request):
     1 / 0
 
 urlpatterns = patterns('',
+    url(r'^admin_tools/', include('admin_tools.urls')),
     (r'', include('{{ project_name }}.base.urls')),
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/$', anonymous_csrf(admin.site.admin_view(admin.site.index))),
     (r'^admin/', include(admin.site.urls)),
+    (r'^accounts/', include('userena.urls')),
     #url(r'^', include('debug_toolbar_user_panel.urls')),
     (r'^bad/$', bad),
 )
