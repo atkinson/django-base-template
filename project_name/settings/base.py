@@ -63,7 +63,6 @@ INSTALLED_APPS = [
     # 'djcelery',
     'compressor',
     'django_nose',
-    'session_csrf',
     'debug_toolbar',
     'userena',
     'bootstrap',
@@ -154,7 +153,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'session_csrf.CsrfMiddleware',  # Must be after auth middleware.
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'commonware.middleware.FrameOptionsHeader',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
@@ -167,7 +166,6 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.core.context_processors.request',
     'django.core.context_processors.i18n',
     'django.core.context_processors.static',
-    'session_csrf.context_processor',
     'django.contrib.messages.context_processors.messages',
 ]
 
