@@ -49,4 +49,8 @@ pytz
 feedparser
 -e git://github.com/themartorana/python-postmark.git#egg=python_postmark-dev
 -e git://github.com/bread-and-pepper/django-userena.git#egg=userena
--e git://github.com/earle/django-bootstrap.git#egg=bootstrap
+
+# Bootstrappiness
+-e git://github.com/tzangms/django-bootstrap-form.git#egg==django_bootstrap_form
+-e git://github.com/piran/userena-bootstrap.git#egg=userenabootstrap
+-e git://github.com/piran/bootstrap-breadcrumbs.git#egg=bootstrap_breadcrumbs

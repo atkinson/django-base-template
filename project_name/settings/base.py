@@ -6,21 +6,7 @@ import os
 # Your project root
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__) + "../../../")
 
-# Bundles is a dictionary of two dictionaries, css and js, which list css files
-# and js files that can be bundled together by the minify app.
-MINIFY_BUNDLES = {
-    'css': {
-        'base_css': (
-            'css/style.css',
-        ),
-    },
-    'js': {
-        'libs_js': (
-            'js/libs/jquery-1.6.2.min.js',
-            'js/libs/modernizr-2.0.6.min.js',
-        ),
-    }
-}
+APP_NAME = "{{ project_name }}"
 
 SUPPORTED_NONLOCALES = ['media', 'admin', 'static']
 
@@ -65,11 +51,14 @@ INSTALLED_APPS = [
     'django_nose',
     'debug_toolbar',
     'userena',
-    'bootstrap',
     'south',
     #'debug_toolbar_user_panel',
     #'memcache_toolbar',
 
+    # Bootstrap apps
+    'bootstrapform',
+    'userenabootstrap',
+    'bootstrap_breadcrumbs',
 
     # Local apps, referenced via {{ project_name }}.appname
 ]
@@ -232,3 +221,13 @@ USERENA_WITHOUT_USERNAMES = True
 USERENA_HIDE_EMAIL = True
 USERENA_DISABLE_PROFILE_LIST = True
 USERENA_DEFAULT_PRIVACY = 'closed'
+
+# Messages ---------
+from django.contrib.messages import constants as message_constants
+MESSAGE_TAGS = {
+    message_constants.DEBUG: 'alert-info',
+    message_constants.INFO: 'alert-info',
+    message_constants.SUCCESS: 'alert-success',
+    message_constants.WARNING: '',
+    message_constants.ERROR: 'alert-error',
+}
