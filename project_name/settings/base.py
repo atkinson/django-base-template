@@ -50,14 +50,17 @@ INSTALLED_APPS = [
     'compressor',
     'django_nose',
     'debug_toolbar',
-    'userena',
     'south',
+    'guardian',
     #'debug_toolbar_user_panel',
     #'memcache_toolbar',
 
+    #Userena
+    'userenabootstrap',
+    'userena',
+
     # Bootstrap apps
     'bootstrapform',
-    'userenabootstrap',
     'bootstrap_breadcrumbs',
 
     # Local apps, referenced via {{ project_name }}.appname
